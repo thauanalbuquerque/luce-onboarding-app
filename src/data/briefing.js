@@ -10,6 +10,7 @@ export const form = {
   meta: {
     title: 'Onboarding · Centrocardio Sobral',
     clinic: 'Centrocardio Sobral',
+    form_version: '2026-06',
     intro:
       'Vamos reunir as informações para configurar o assistente virtual de ' +
       'WhatsApp da clínica. Não é nada técnico — são informações que vocês já ' +

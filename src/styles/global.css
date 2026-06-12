@@ -306,6 +306,23 @@ textarea {
   color: var(--color-error);
 }
 
+.notice--ok {
+  background: #E6F6EF;
+  color: #157A5B;
+}
+
+.notice__retry {
+  display: inline-block;
+  margin-left: var(--sp-2);
+  background: none;
+  border: none;
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  padding: 0;
+  font-size: inherit;
+}
+
 /* ----- Tela de sucesso ----- */
 .success {
   text-align: center;

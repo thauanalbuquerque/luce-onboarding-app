@@ -132,7 +132,13 @@ export default function App() {
         )}
 
         {screen === 'success' && (
-          <Success form={form} exported={exported} onBack={goBack} />
+          <Success
+            form={form}
+            answers={answers}
+            generatedAt={generatedAt}
+            exported={exported}
+            onBack={goBack}
+          />
         )}
       </main>
     </div>
