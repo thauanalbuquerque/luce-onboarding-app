@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.env
+.env.*
+!.env.example
+.vite
+
+# Briefing com infos da clínica — não versionar (repo público)
+briefing-onboarding-centrocardio-luce.md
