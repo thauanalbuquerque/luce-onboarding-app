@@ -3,17 +3,19 @@ import { form } from './data/briefing.js'
 import ProgressBar from './components/ProgressBar.jsx'
 import Field from './components/Field.jsx'
 import Summary from './components/Summary.jsx'
+import Success from './components/Success.jsx'
 import { validateBlock } from './utils/form.js'
 
 // Telas: 'intro' -> blocos (0..n-1) -> 'summary'
 export default function App() {
   const blocks = form.blocks
   const total = blocks.length
-  const [screen, setScreen] = useState('intro') // 'intro' | 'block' | 'summary'
+  const [screen, setScreen] = useState('intro') // 'intro' | 'block' | 'summary' | 'success'
   const [index, setIndex] = useState(0)
   const [answers, setAnswers] = useState({})
   const [errors, setErrors] = useState({})
   const [generatedAt, setGeneratedAt] = useState('')
+  const [exported, setExported] = useState(false)
 
   const block = blocks[index]
 
@@ -48,7 +50,9 @@ export default function App() {
 
   const goBack = () => {
     setErrors({})
-    if (screen === 'summary') {
+    if (screen === 'success') {
+      setScreen('summary')
+    } else if (screen === 'summary') {
       setScreen('block')
       setIndex(total - 1)
     } else if (index > 0) {
@@ -71,7 +75,7 @@ export default function App() {
         </div>
       </header>
 
-      {screen !== 'intro' && (
+      {screen !== 'intro' && screen !== 'success' && (
         <ProgressBar
           current={screen === 'summary' ? total : progressCurrent}
           total={total}
@@ -119,7 +123,16 @@ export default function App() {
             answers={answers}
             generatedAt={generatedAt}
             onBack={goBack}
+            onExported={() => setExported(true)}
+            onFinish={() => {
+              setScreen('success')
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }}
           />
+        )}
+
+        {screen === 'success' && (
+          <Success form={form} exported={exported} onBack={goBack} />
         )}
       </main>
     </div>

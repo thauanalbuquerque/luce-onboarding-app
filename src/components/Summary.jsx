@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { buildSummary, downloadFile, slugify } from '../utils/form.js'
 
-export default function Summary({ form, answers, generatedAt, onBack }) {
+export default function Summary({ form, answers, generatedAt, onBack, onExported, onFinish }) {
   const { json, text } = useMemo(
     () => buildSummary(form, answers, generatedAt),
     [form, answers, generatedAt],
@@ -21,9 +21,15 @@ export default function Summary({ form, answers, generatedAt, onBack }) {
     try {
       await navigator.clipboard.writeText(content)
       flash(`${label} copiado ✓`)
+      onExported?.()
     } catch {
       flash('Não foi possível copiar — selecione e copie manualmente.')
     }
+  }
+
+  const download = (filename, content, mime) => {
+    downloadFile(filename, content, mime)
+    onExported?.()
   }
 
   return (
@@ -60,7 +66,7 @@ export default function Summary({ form, answers, generatedAt, onBack }) {
             </button>
             <button
               className="btn btn--ghost"
-              onClick={() => downloadFile(`onboarding-${base}.md`, text, 'text/markdown')}
+              onClick={() => download(`onboarding-${base}.md`, text, 'text/markdown')}
             >
               Baixar .md
             </button>
@@ -73,7 +79,7 @@ export default function Summary({ form, answers, generatedAt, onBack }) {
             <button
               className="btn btn--ghost"
               onClick={() =>
-                downloadFile(`onboarding-${base}.json`, jsonStr, 'application/json')
+                download(`onboarding-${base}.json`, jsonStr, 'application/json')
               }
             >
               Baixar .json
@@ -85,6 +91,9 @@ export default function Summary({ form, answers, generatedAt, onBack }) {
       <div className="nav">
         <button className="btn btn--ghost" onClick={onBack}>
           ← Voltar e revisar
+        </button>
+        <button className="btn btn--primary" onClick={onFinish}>
+          Concluir
         </button>
       </div>
 

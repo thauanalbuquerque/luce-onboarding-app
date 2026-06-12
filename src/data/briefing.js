@@ -15,6 +15,13 @@ export const form = {
       'WhatsApp da clínica. Não é nada técnico — são informações que vocês já ' +
       'têm na ponta da língua sobre a clínica, os atendimentos e como gostam de ' +
       'atender os pacientes. Leva cerca de 30 a 40 minutos.',
+    closing:
+      'Obrigado! Com essas respostas conseguimos configurar o assistente para ' +
+      'atender do jeito da Centrocardio. Qualquer dúvida durante o ' +
+      'preenchimento, é só chamar.',
+    closingNote:
+      'Lembrete: a lista de pacientes para reativação será solicitada em uma ' +
+      'etapa posterior, separada, com o tratamento de privacidade adequado.',
   },
   blocks: [
     // ─────────────────────────── BLOCO 1 ───────────────────────────

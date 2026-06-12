@@ -301,6 +301,42 @@ textarea {
   flex-shrink: 0;
 }
 
+.notice--warn {
+  background: var(--color-error-soft);
+  color: var(--color-error);
+}
+
+/* ----- Tela de sucesso ----- */
+.success {
+  text-align: center;
+}
+
+.success .step__desc {
+  text-align: center;
+}
+
+.success .notice {
+  text-align: left;
+}
+
+.success__check {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--sp-4);
+  border-radius: 999px;
+  background: var(--color-success);
+  color: #fff;
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success .nav {
+  justify-content: center;
+}
+
 /* ----- Texto de confirmação (bloco médico-safe) ----- */
 .confirm-block {
   background: var(--color-bg);
