@@ -1,9 +1,5 @@
 // Perguntas do onboarding — transcritas FIELMENTE de
-// briefing-onboarding-centrocardio-luce.md (Blocos 1 a 4 / perguntas 1–20).
-//
-// ⚠️ Bloco 5 ("Mensagens que a secretária inicia" — checkboxes) NÃO está no
-//    arquivo de briefing recebido (o arquivo termina na pergunta 20, cortada).
-//    Será adicionado quando o conteúdo for fornecido — não foi inventado aqui.
+// briefing-onboarding-centrocardio-luce.md (Blocos 1 a 5 / perguntas 1–21).
 //
 // Formato de cada campo:
 //   { id, label, type, required, help?, placeholder?, options?, allowOther?,
@@ -252,6 +248,30 @@ export const form = {
     },
 
     // ─────────────────────────── BLOCO 5 ───────────────────────────
-    // Ausente do arquivo de briefing recebido. Adicionar quando fornecido.
+    {
+      id: 'bloco5',
+      title: 'Mensagens que a secretária costuma iniciar',
+      description:
+        'Momentos em que a secretária pega o WhatsApp e escreve primeiro para o ' +
+        'paciente (iniciando o contato, não respondendo). Mapeamos essas situações ' +
+        'para preparar os modelos de mensagem com a operadora do WhatsApp.',
+      fields: [
+        {
+          id: 'q21_mensagens_iniciadas',
+          label: 'Liste todas as situações em que a clínica inicia o contato com o paciente.',
+          type: 'checkbox',
+          required: true,
+          options: [
+            'Confirmar uma consulta marcada',
+            'Lembrar da consulta na véspera',
+            'Avisar sobre remarcação / mudança de horário',
+            'Avisar que um resultado/exame está pronto',
+            'Chamar de volta um paciente que está há tempos sem vir',
+            'Pedir avaliação/feedback após o atendimento',
+          ],
+          allowOther: true,
+        },
+      ],
+    },
   ],
 }
