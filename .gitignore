@@ -7,3 +7,6 @@ dist-ssr
 .env.*
 !.env.example
 .vite
+
+# Briefing com infos da clínica — não versionar (repo público)
+briefing-onboarding-centrocardio-luce.md
